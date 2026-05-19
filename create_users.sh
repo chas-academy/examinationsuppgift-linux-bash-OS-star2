@@ -10,7 +10,7 @@ fi
 for user in "$@"
 do
     #Skapa en ny användare
-    adduser --disabled-password --gecos "" "$user"
+    useradd -m "$user"
 
     #Skapa mappar
     mkdir -p "/home/$user/Documents"
@@ -26,7 +26,7 @@ do
     echo "Välkommen $user" > "/home/$user/welcome.txt"
 
     #Skriva i alla användare till welcome.txt
-    cut -d: -f1 /etc/passwd >> "/home/$user/welcome.txt"
+    cut -d: -f1 /etc/passwd | grep -v "^$user$" >> "/home/$user/welcome.txt"
 
     #Kontrollera att ny användare äger de skapade filarna
     chown -R "$user:$user" "/home/$user"
