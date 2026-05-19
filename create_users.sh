@@ -9,7 +9,7 @@ fi
 #Skapa for loop för användare
 for user in "$@"; do
     #Skapa en ny användare
-    useradd -m "$user"
+    useradd -m -s /bin/bash "$user"
 
     #Skapa katalogstruktur
     mkdir -p "/home/$user/documents"
