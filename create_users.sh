@@ -9,28 +9,28 @@ fi
 #Skapa for loop för användare
 for user in "$@"; do
     #Skapa en ny användare
-    useradd -m -s /bin/bash "$user" 2>/dev/null
-
-    HOME="/home/$user"
+    if ! id "$user" &>/dev/null; then
+            useradd -m -s /bin/bash "$user"
+    fi
     
     #Skapa katalogstruktur
-    mkdir -p "$HOME/Documents"
-    mkdir -p "$HOME/Downloads"
-    mkdir -p "$HOME/Work"
+    mkdir -p "/home/$user/Documents"
+    mkdir -p "/home/$user/Downloads"
+    mkdir -p "/home/$user/Work"
 
     #Ge rättigheter 
-    chmod 700 "$HOME/Documents"
-    chmod 700 "$HOME/Downloads"
-    chmod 700 "$HOME/Work"
+    chmod 700 "/home/$user/Documents"
+    chmod 700 "/home/$user/Downloads"
+    chmod 700 "/home/$user/Work"
 
     #Skapa välkomstmeddelande
-    echo "Välkommen $user" > "$HOME/welcome.txt"
+    echo "Välkommen $user" > "/home/$user/welcome.txt"
 
     #Skriva i alla användare till welcome.txt
-    cut -d: -f1 /etc/passwd >> "$HOME/welcome.txt"
+    cut -d: -f1 /etc/passwd >> "/home/$user/welcome.txt"
 
     #Kontrollera att ny användare äger de skapade filarna
-    chown -R "$user:$user" "$HOME" 2>dev/null
+    chown -R "$user:$user" "/home/$user"
     
 done
 
