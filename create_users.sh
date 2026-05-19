@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #kontrollera att det är root som kör scriptet
-if [ "$UID" -ne 0 ]; then
+if [ "$EUID" -ne 0 ]; then
     echo "Error! Run as root!"
     exit
 fi
