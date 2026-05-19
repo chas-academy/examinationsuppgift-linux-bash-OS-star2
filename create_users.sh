@@ -13,7 +13,7 @@ for user in $@; do
     useradd -m "$user"
     
     #Skapa hemkatalog
-    mkdir -p /home/$user
+    #mkdir -p /home/$user
 
     #Skapa mappar
     mkdir -p /home/$user/Documents
