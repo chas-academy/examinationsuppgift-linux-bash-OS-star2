@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #kontrollera att det är root som kör scriptet
-if [ "$EUID" -ne 0 ]; then
+if [ "$UID" -ne 0 ]; then
     echo "Error! Run as root!"
     exit
 fi
@@ -12,9 +12,9 @@ for user in olha shyrokova; do
     useradd -m $user
 
     #Skapa katalogstruktur
-    mkdir /home/$user/Documents
-    mkdir /home/$user/Downloads
-    mkdir /home/$user/Work
+    mkdir -p /home/$user/Documents
+    mkdir -p /home/$user/Downloads
+    mkdir -p /home/$user/Work
 
     #Ge rättigheter 
     chmod 700 /home/$user/Documents
