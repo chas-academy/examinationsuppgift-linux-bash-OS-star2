@@ -22,7 +22,7 @@ for user in "$@"; do
     chmod 700 "/home/$user/Work"
 
     #Skapa välkomstmeddelande
-    echo "Välkommen $user!" > /home/$user/welcome.txt
+    echo "Välkommen $user!" > "/home/$user/welcome.txt"
 
     #Skriva i alla användare till welcome.txt
     cut -d: -f1 /etc/passwd >> "/home/$user/welcome.txt"
