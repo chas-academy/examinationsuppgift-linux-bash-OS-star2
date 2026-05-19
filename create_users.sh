@@ -25,10 +25,10 @@ for user in "$@"; do
     echo "Välkommen $user!" > /home/$user/welcome.txt
 
     #Skriva i alla användare till welcome.txt
-    cut -d: -f1 /etc/passwd >> /home/$user/welcome.txt
+    cut -d: -f1 /etc/passwd >> "/home/$user/welcome.txt"
 
     #Kontrollera att ny användare äger de skapade filarna
-    chown -R $user:$user /home/$user
+    chown -R "$user:$user /home/$user"
 
 done
 
