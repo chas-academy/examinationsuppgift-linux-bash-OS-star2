@@ -7,10 +7,10 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 #Skapa for loop för användare
-for user in "$@"; do
+for user in $@; do
 
     #Skapa en ny användare
-    useradd "$user"
+    useradd -m "$user"
     
     #Skapa hemkatalog
     mkdir -p "/home/$user"
