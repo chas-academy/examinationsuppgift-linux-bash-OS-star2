@@ -13,26 +13,26 @@ for user in $@; do
     useradd -m "$user"
     
     #Skapa hemkatalog
-    mkdir -p "/home/$user"
+    mkdir -p /home/$user
 
     #Skapa mappar
-    mkdir -p "/home/$user/Documents"
-    mkdir -p "/home/$user/Downloads"
-    mkdir -p "/home/$user/Work"
+    mkdir -p /home/$user/Documents
+    mkdir -p /home/$user/Downloads
+    mkdir -p /home/$user/Work
 
     #Ge rättigheter 
-    chmod 700 "/home/$user/Documents"
-    chmod 700 "/home/$user/Downloads"
-    chmod 700 "/home/$user/Work"
+    chmod 700 /home/$user/Documents
+    chmod 700 /home/$user/Downloads
+    chmod 700 /home/$user/Work
 
     #Skapa välkomstmeddelande
-    echo "Välkommen $user" > "/home/$user/welcome.txt"
+    echo "Välkommen $user" > /home/$user/welcome.txt
 
     #Skriva i alla användare till welcome.txt
-    cut -d: -f1 /etc/passwd >> "/home/$user/welcome.txt"
+    cut -d: -f1 /etc/passwd >> /home/$user/welcome.txt
 
     #Kontrollera att ny användare äger de skapade filarna
-    chown -R "$user:$user" "/home/$user"
+    chown -R $user:$user /home/$user
     
 done
 
