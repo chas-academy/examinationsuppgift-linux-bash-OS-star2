@@ -7,7 +7,7 @@ if [ "$UID" -ne 0 ]; then
 fi
 
 #Skapa for loop för användare
-for user in "$@"; do
+for user in Olha Shyrokova; do
     #Skapa en ny användare
     useradd -m $user
 
@@ -27,6 +27,9 @@ for user in "$@"; do
     #Skriva i alla användare till welcome.txt
     cut -d: -f1 /etc/passwd >> /home/$user/welcome.txt
 
+    #Kontrollera att ny användare äger de skapade filarna
+    chown -R $user:$user /home/$user
+    
 done
 
     
