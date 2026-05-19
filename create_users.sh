@@ -13,7 +13,10 @@ for user in "$@"; do
             useradd -m -s /bin/bash "$user"
     fi
     
-    #Skapa katalogstruktur
+    #Skapa hemkatalog
+    mkdir -p "/home/$user"
+
+    #Skapa mappar
     mkdir -p "/home/$user/Documents"
     mkdir -p "/home/$user/Downloads"
     mkdir -p "/home/$user/Work"
