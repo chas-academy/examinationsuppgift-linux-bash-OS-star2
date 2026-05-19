@@ -7,7 +7,7 @@ if [ "$UID" -ne 0 ]; then
 fi
 
 #Skapa for loop för användare
-for user in Olha Shyrokova; do
+for user in olha shyrokova; do
     #Skapa en ny användare
     useradd -m $user
 
