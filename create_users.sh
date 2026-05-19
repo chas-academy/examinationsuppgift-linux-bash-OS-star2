@@ -12,14 +12,14 @@ for user in "$@"; do
     useradd -m "$user"
 
     #Skapa katalogstruktur
-    mkdir /home/$user/Documents
-    mkdir /home/$user/Downloads
-    mkdir /home/$user/Work
+    mkdir "/home/$user/Documents"
+    mkdir "/home/$user/Downloads"
+    mkdir "/home/$user/Work"
 
     #Ge rättigheter 
-    chmod 700 /home/$user/Documents 
-    chmod 700 /home/$user/Downloads
-    chmod 700 /home/$user/Work
+    chmod 700 "/home/$user/Documents"
+    chmod 700 "/home/$user/Downloads"
+    chmod 700 "/home/$user/Work"
 
     #Skapa välkomstmeddelande
     echo "Välkommen $user!" > /home/$user/welcome.txt
