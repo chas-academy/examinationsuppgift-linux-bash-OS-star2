@@ -8,10 +8,9 @@ fi
 
 #Skapa for loop för användare
 for user in "$@"; do
+
     #Skapa en ny användare
-    if ! id "$user" &>/dev/null; then
-            useradd -m -s /bin/bash "$user"
-    fi
+    useradd "$user"
     
     #Skapa hemkatalog
     mkdir -p "/home/$user"
