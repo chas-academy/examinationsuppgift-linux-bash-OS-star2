@@ -7,7 +7,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 #Skapa for loop för användare
-for user in "$@"
+for user in $*
 do
     #Skapa en ny användare
     useradd -m "$user"
